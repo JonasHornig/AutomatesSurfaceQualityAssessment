@@ -1,8 +1,6 @@
 import time
 StartTime = time.time()
 
-# Some comment
-
 import torch
 
 from tqdm import tqdm
