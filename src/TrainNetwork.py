@@ -2,6 +2,7 @@ import time
 StartTime = time.time()
 
 import torch
+import os
 
 from tqdm import tqdm
 from dataclasses import dataclass, field
@@ -18,7 +19,6 @@ class ControlVariables:
     # Inputs
     Modes      : tuple = ("Training", "Testing")
     DataSet    : str   = "CompleteDataSet" #  --  DummyDataSet  --  SmallDataSet  --  CompleteDataSet
-    OutputPath : str   = "Outputs/"
 
     FeatureDimension     : int   = 768
     EmbeddingDimension   : int   = 5
@@ -39,7 +39,9 @@ class ControlVariables:
     NumberOfClasses : int = 0 # K
     
     def __post_init__(self):
-        self.DataSetPath = f"DataSets/{self.DataSet}"
+        BaseDirectory = os.path.dirname(os.path.abspath(__file__))
+        self.DataSetPath = f"{BaseDirectory}/DataSets/{self.DataSet}"
+        self.OutputPath : str   = f"{BaseDirectory}/Outputs/"
 
 def Main(LogFile):
     LogFile.W("\n**************************\n*  Training a Proto Net  *\n**************************")
