@@ -6,10 +6,10 @@ import torch
 from tqdm import tqdm
 from dataclasses import dataclass, field
 
-import Code.DataSetHandling as DATA
-import Code.NeuralNetwork as NN
-import Code.Logging as LOG
-import Code.EpisodeHandler as EPH
+import Modules.DataSetHandling as DATA
+import Modules.NeuralNetwork as NN
+import Modules.Logging as LOG
+import Modules.EpisodeHandler as EPH
 
 import PreprocessImages as PPI
 
